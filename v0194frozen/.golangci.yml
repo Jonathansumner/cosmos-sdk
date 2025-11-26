@@ -1,0 +1,79 @@
+run:
+  tests: false
+  # timeout for analysis, e.g. 30s, 5m, default is 1m
+  timeout: 5m
+
+linters:
+  disable-all: true
+  enable:
+#    - depguard
+    - dogsled
+    - exportloopref
+    - goconst
+    - gocritic
+    - gofumpt
+    - gosec
+    - gosimple
+    - govet
+    - ineffassign
+    - misspell
+    - nakedret
+    - nolintlint
+    - staticcheck
+    - stylecheck
+    - typecheck
+    - unconvert
+    - unused
+
+issues:
+  exclude:
+    - "directive `//nolint" # check up on this one here
+    - "directive `// nolint" # check up on this one here
+  exclude-rules:
+    - text: "Use of weak random number generator"
+      linters:
+        - gosec
+    - text: "should be written without leading space as"
+      linters:
+        - nolintlint
+
+  max-issues-per-linter: 10000
+  max-same-issues: 10000
+
+linters-settings:
+  nakedret:
+    max-func-lines: 500
+  stylecheck:
+    checks:
+      - all
+      - '-ST1016'
+      - '-ST1003'
+  staticcheck:
+    checks:
+      - all
+      - '-SA1019'
+  gocritic:
+    disabled-checks:
+      - ifElseChain
+      - regexpMust
+  gosec:
+    excludes:
+      - G306
+      - G101
+  dogsled:
+    max-blank-identifiers: 3
+  maligned:
+    # print struct with more effective memory layout or not, false by default
+    suggest-new: true
+  nolintlint:
+    allow-unused: false
+    allow-no-explanation:
+      - errcheck
+      - misspell
+      - unparam
+      - staticcheck
+      - gocritic
+      - gosec
+      - interfacer
+    require-explanation: false
+    require-specific: false
