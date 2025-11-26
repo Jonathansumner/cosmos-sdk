@@ -1,6 +1,6 @@
 go 1.23.2
 
-module github.com/cosmos/cosmos-sdk
+module github.com/jonathansumner/cosmos-sdk/v0200frozen
 
 require (
 	cosmossdk.io/api v0.9.2
