@@ -1,6 +1,6 @@
 go 1.17
 
-module github.com/cosmos/cosmos-sdk
+module github.com/jonathansumner/cosmos-sdk/v0181frozen
 
 require (
 	github.com/99designs/keyring v1.1.6
